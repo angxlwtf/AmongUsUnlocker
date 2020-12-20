@@ -20,8 +20,8 @@ namespace AmongUsUnlocker
 
         public FileInfo CreateBackup()
         {
-            var backupFile = new FileInfo(Path.Combine(GameAssembly.Directory.FullName, $"GameAssembly_{DateTime.Now.ToString("dd-MM-yyyy_HH-mm-ss")}.bak"));
-            GameAssembly.CopyTo(backupFile.FullName, true);
+            var backupDirectory = Directory.CreateDirectory("Backup");
+            GameAssembly.CopyTo(backupDirectory, true);
             return backupFile;
         }
     }
